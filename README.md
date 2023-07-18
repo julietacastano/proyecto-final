@@ -12,6 +12,6 @@ npm install
 npm start
 ```
 ### Deploy Railway
-
+https://proyecto-final-production-3161.up.railway.app/api/products?pagina=1
 
 Proyect developed by Julieta Castaño Sanchez 
