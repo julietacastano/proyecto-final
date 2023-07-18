@@ -63,5 +63,5 @@ app.use((error,req,res,next) => {
 })
 
 const port = process.env.PORT
-app.listen(port, ()=>{ winstonLogger.http(`conectado a puerto ${port}`) })
+app.listen(port,  '0.0.0.0', ()=>{ winstonLogger.http(`conectado a puerto ${port}`) })
 
