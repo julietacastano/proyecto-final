@@ -62,6 +62,6 @@ app.use((error,req,res,next) => {
     })
 })
 
-const port = process.env.PORT
+const port = process.env.PORT || 8080
 app.listen(port,  '0.0.0.0', ()=>{ winstonLogger.http(`conectado a puerto ${port}`) })
 
