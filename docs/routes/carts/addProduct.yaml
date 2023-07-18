@@ -1,0 +1,23 @@
+paths:
+  /api/carts/agregarProd/{id}:
+    post:
+      summary: Crea un nuevo producto
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: El id del producto es el parametro necesario
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/NewCartProd"
+      responses:
+        "200":
+          description: Se agerego el producto correctamente
+        "404":
+          description: Ha ocurrido un error

@@ -1,0 +1,22 @@
+# Order
+components:
+  schemas:
+    Orders:
+      type: object
+      required:
+        - id
+        - products
+      properties:
+        id:
+          type: string
+          description: Id autogenerado
+        products:
+          type: array
+          description: Array de productos.
+      example:
+        id: 1234eb9fg8850ty0y41e3r173y
+        products:
+          [
+            { id: 6678eb9fg8508ty8241e3r556f, quantity: 2 },
+            { id: 0938fa7jy4346ty8241e3r576g, quantity: 1 },
+          ]

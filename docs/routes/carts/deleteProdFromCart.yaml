@@ -1,0 +1,17 @@
+paths:
+  /api/carts/eliminar/{id}:
+    delete:
+      summary: Elimina un producto del carrito
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: El id del producto es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: El producto se elimino con exito del carrito.
+        "404":
+          description: Ocurrio un problema.

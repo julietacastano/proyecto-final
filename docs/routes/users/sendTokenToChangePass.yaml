@@ -1,0 +1,17 @@
+paths:
+  /api/users/olvidePass:
+    post:
+      summary: Cambia la constraseña de un usuario existente.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/SendToken"
+      responses:
+        "201":
+          description: Se envio un codigo de autenticacion a tu email.
+        "404":
+          description: Ocurrio un problema.

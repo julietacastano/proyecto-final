@@ -1,0 +1,17 @@
+paths:
+  /api/users/premium/{id}:
+    get:
+      summary: Cambia el rol del usuario premium
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          description: El id del usuario es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Rol del usuario cambiado con exito.
+        "404":
+          description: Usuario no encontrado.

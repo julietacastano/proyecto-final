@@ -1,0 +1,18 @@
+# LoginUser
+components:
+  requestBodies:
+    LoginUser:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          description: Email del usuario.
+        password:
+          type: string
+          description: Constraseña del usuario.
+      example:
+        email: email@email.com
+        password: Pass1234

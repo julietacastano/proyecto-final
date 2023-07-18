@@ -1,0 +1,17 @@
+paths:
+  /api/carts/restar/{id}:
+    put:
+      summary: Sumar cantidad de un producto de a 1.
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: El id del producto es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Se actualizo la cantidad con exito.
+        "404":
+          description: Ocurrio un problema.

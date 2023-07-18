@@ -1,0 +1,40 @@
+<header class="bg-indigo-800 p-4">
+    <div class="mx-auto flex justify-between items-center flex-wrap h-20">
+        <a href="/api/products"><img src="/static/logo/logo2.png" alt="Logo del comercio"  class="h-20"></a>
+        <nav class="">
+            <a class= "py-3 px-3 text-red-100" href="/api/products">Inicio</a>
+            {{#if usuario}}
+            <a href="/api/users/logout" class= "py-3 pl-3 pr-10 text-red-100">Cerrar sesion</a>
+            {{else}}
+            <a href="/api/users/login" class= "py-3 pl-3 pr-10 text-red-100">Iniciar sesion</a>
+            {{/if}}
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h3 class="text-4xl text-center font-light my-5">{{nombrePagina}}</h3>
+    <p class="text-2xl mx-20 font-semibold my-5">Tu orden esta en camino!</h3>
+    <div class="bg-white shadow rounded-lg gap-y-5 py-5 mx-20 mb-5">
+        <p class="text-xl font-medium my-5 mx-5">Llega en 2 a 5 días habiles</h3>
+        <div class="flex flex-row">
+            <div class="p-10">
+                <p class="text-lg">Productos:</p>
+                {{#each productos}}
+                    <p class="text-sm">{{this.titulo}} (x {{this.quantity}}) - ${{this.precioAcc}}</p>
+                {{/each}}
+            </div>
+            <div class="p-10">          
+                <p class="text-lg">Contacto:</p>
+                    <p class="text-sm">Nombre: {{name}}</p>
+                    <p class="text-sm">Email: {{email}}</p>
+                    <p class="text-sm">Dirección: {{address}}</p>
+                    <p class="text-sm">Telefono: {{tel}}</p>
+            </div>
+        </div>
+        <div class="mb-10">
+            <div class="mx-20 text-sm font-medium">Total de productos: {{totalProds}}</div>
+            <p class="mx-20 text-md font-medium py-2">Total de la compra: ${{valorTotal}}</p>
+        </div>
+    </div>
+</main>

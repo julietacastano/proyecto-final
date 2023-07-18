@@ -1,0 +1,20 @@
+# NewCartProd
+components:
+  requestBodies:
+    NewCartProd:
+      type: object
+      required:
+        - id
+        - quantity
+      properties:
+        id:
+          type: string
+          description: Id de producto
+        quantity:
+          type: number
+          description: Cantidad del producto
+      example:
+        [
+          { id: 6678eb9fg8508ty8241e3r556f, quantity: 1 },
+          { id: 0938fa7jy4346ty8241e3r576g, quantity: 2 },
+        ]

@@ -1,0 +1,13 @@
+# SendToken
+components:
+  requestBodies:
+    SendToken:
+      type: object
+      required:
+        - email
+      properties:
+        email:
+          type: string
+          description: email del usuario.
+      example:
+        emial: email@email.com

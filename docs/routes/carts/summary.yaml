@@ -1,0 +1,23 @@
+paths:
+  /api/carts/resumen/{id}:
+    get:
+      summary: Trae resumen del carrito
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: El id del carrito es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: El carrito se vacio con exito.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Summary"
+        "404":
+          description: Ocurrio un problema.

@@ -1,0 +1,23 @@
+paths:
+  /api/admin/editar/{id}:
+    post:
+      summary: Edita un nuevo existente
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          description: El id del producto es el parametro necesario
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/EditProduct"
+      responses:
+        "200":
+          description: El producto se edito con exito.
+        "404":
+          description: Ocurrio un problema.

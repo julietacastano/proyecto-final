@@ -1,0 +1,17 @@
+paths:
+  /api/carts/vaciarCarrito:
+    delete:
+      summary: Vaciar todo el carrito
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: El id del producto es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: El carrito se vacio con exito.
+        "404":
+          description: Ocurrio un problema.

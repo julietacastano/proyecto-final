@@ -1,0 +1,11 @@
+paths:
+  /api/users/logout:
+    get:
+      summary: Cierra sesion del usuario
+      tags:
+        - Users
+      responses:
+        "201":
+          description: Se cerro la sesion del usuario correctamente.
+        "404":
+          description: Ocurrio un problema.

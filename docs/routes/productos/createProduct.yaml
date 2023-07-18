@@ -1,0 +1,21 @@
+paths:
+  /api/admin/crear:
+    post:
+      summary: Crea un nuevo producto
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/NewProduct"
+      responses:
+        "201":
+          description: El producto creado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Products"
+        "404":
+          description: Ocurrio un problema.

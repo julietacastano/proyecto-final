@@ -1,0 +1,23 @@
+paths:
+  /api/purchase/{id}:
+    get:
+      summary: Trae la orden con el id pedido
+      tags:
+        - Purchase
+      parameters:
+        - name: id
+          in: path
+          description: El id de la orden es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Trae la orden pedida.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Orders"
+        "404":
+          description: Orden no encontrada.

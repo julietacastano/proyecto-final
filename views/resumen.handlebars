@@ -1,0 +1,64 @@
+<header class="bg-indigo-800 p-4">
+    <div class="mx-auto flex justify-between items-center flex-wrap h-20">
+        <a href="/api/products"><img src="/static/logo/logo2.png" alt="Logo del comercio"  class="h-20"></a>
+        <nav class="">
+            <a class= "py-3 px-3 text-red-100" href="/api/products">Inicio</a>
+            {{#if usuario}}
+            <a href="/api/users/logout" class= "py-3 pl-3 pr-10 text-red-100">Cerrar sesion</a>
+            {{else}}
+            <a href="/api/users/login" class= "py-3 pl-3 pr-10 text-red-100">Iniciar sesion</a>
+            {{/if}}
+        </nav>
+    </div>
+</header>
+
+<main>
+    {{#if err.length}}
+    <div class="max-w-md mx-auto my-10 alertas">
+        {{#each err}}
+            <p class="bg-red-600 text-white uppercase text-xs text-center p-2 mb-1 font-bold rounded-md">{{this}}</p>
+        {{/each}}
+    </div>
+    {{/if}}
+    {{#if msg.length}}
+    <div class="max-w-md mx-auto my-10 alertas">
+        {{#each msg}}
+            <p class="bg-green-600 text-white uppercase text-xs text-center p-2 mb-1 font-bold rounded-md">{{this}}</p>
+        {{/each}}
+    </div>
+    {{/if}}
+
+    <h3 class="text-4xl text-center font-light my-5">{{nombrePagina}}</h3>
+    <div class="bg-white shadow rounded-lg gap-y-5 py-5 mx-20">
+        <div class="p-10">
+            <p>Productos:</p>
+            {{#each productos}}
+                <p class="text-sm">{{this.titulo}} (x {{this.quantity}}) - ${{this.precioAcc}}</p>
+            {{/each}}
+        </div>
+
+        <div class="text-center text-sm font-medium">Total de productos: {{totalProds}}</div>
+        <p class="text-center text-md font-medium py-2">Total de la compra: ${{valorTotal}}</p>
+
+        <form action="/api/purchase/{{carrito._id}}" method="POST" class="space-y-8 mx-10 my-10"> 
+            <p class="text-lg font-light my-5">Datos de Contacto</p>
+            <div>
+                <label for="name" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Nombre</label>
+                <input type="text" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400" value="{{name}}">
+            </div>
+            <div>
+                <label for="email" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Email</label>
+                <input type="text" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400" value="{{email}}">
+            </div>
+            <div>
+                <label for="address" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Dirección</label>
+                <input type="text" name="address" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400">
+            </div>
+            <div>
+                <label for="tel" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Telefono</label>
+                <input type="text" name="tel" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400">
+            </div>
+            <input type="submit" value="Finalizar compra" class="bg-indigo-800 text-red-100 py-2 px-5 rounded text-center text-white cursor-pointer w-full my-5">
+        </form>
+    </div>
+</main>

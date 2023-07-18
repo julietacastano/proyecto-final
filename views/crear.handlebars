@@ -1,0 +1,61 @@
+<header class="bg-indigo-800 p-4">
+    <div class="mx-auto flex justify-between items-center flex-wrap ">
+        <a href="/api/products"><img src="/static/logo/logo2.png" alt="Logo del comercio"  class="h-20"></a>
+        <nav>
+            <a class= "py-3 px-3 text-red-100" href="/api/admin">Panel de administrador</a>
+            <a href="/api/users/logout" class= "py-3 pl-3 pr-10 text-red-100">Cerrar sesion</a>
+        </nav>
+    </div>
+</header>
+<main class="mx-auto container mt-5 px-2">
+    {{#if errores.length}}
+    <div class="max-w-md mx-auto my-10 alertas">
+        {{#each errores}}
+            <p class="bg-red-600 text-white uppercase text-xs text-center p-2 mb-1 font-bold rounded-md">{{this.msg}}</p>
+        {{/each}}
+    </div>
+    {{/if}}
+
+        <h3 class="text-2xl text-center my-5">{{nombrePagina}}</h3>
+        <div class="bg-white shadow py-5 px-4 rounded mx-auto max-w-4xl my-10">
+            <form method="POST" action="/api/admin/crear" enctype="multipart/form-data" class="space-y-8" >
+                <div>
+                    <label for="titulo" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Titulo</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Titulo del libro" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400" value="{{completado.titulo}}">
+                </div>
+                <div>
+                    <label for="descripcion" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Descripción del libro" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 resize-none">{{completado.descripcion}}</textarea>
+                </div>
+                <div>
+                    <label for="precio" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Precio</label>
+                    <input type="number" id="precio" name="precio" placeholder="$" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400" value="{{completado.precio}}">
+                </div>
+                <div>
+                    <label for="codigo" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Código de producto</label>
+                    <input type="text" id="codigo" name="codigo" placeholder="Código único" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400" value="{{completado.codigo}}">
+                </div>
+                <div>
+                    <label for="stock" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Stock</label>
+                    <input type="number" id="stock" name="stock" placeholder="Stock" class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400" value="{{completado.stock}}">
+                </div>
+                <div>
+                    <label for="categoria" class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Categoria</label>
+                    <select id="categoria" name="categoria" class="text-sm text-gray-800 w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400">
+                        <option value="" selected >-- Seleccionar uno --</option>
+                        <option value="Ficcion">Ficción</option>
+                        <option value="No-Ficcion">No-ficción</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Thriller">Thriller</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1 uppercase font-semibold">Imagen</label>
+                    <input type="file" name="imagen">
+                </div>
+                <input type="submit" value="Publicar" class="w-full bg-indigo-800 text-red-100 hover:bg-indigo-700 text-white rounded-md py-2 px-5 cursor-pointer">
+
+            </form>
+        </div>
+
+</main>

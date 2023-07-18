@@ -1,0 +1,42 @@
+# RegisterUser
+components:
+  requestBodies:
+    RegisterUser:
+      type: object
+      required:
+        - name
+        - email
+        - password
+        - rol
+      properties:
+        id:
+          type: string
+          description: Id de producto
+        name:
+          type: string
+          description: Nombre del usuario.
+        email:
+          type: string
+          description: Email del usuario.
+        password:
+          type: string
+          description: Constraseña del usuario.
+        edad:
+          type: number
+          description: Edad del usuario.
+        rol:
+          type: string
+          description: Rol del usuario.
+        carrito:
+          type: string
+          description: Id autogenerado del carrito del usuario.
+        orden:
+          type: string
+          description: Id autogenerado de la orden del usuario.
+      example:
+        id: 553497de54acd1159dea1281
+        name: Roberto Carlos
+        email: email@email.com
+        edad: 20
+        password: Pass1234
+        rol: user

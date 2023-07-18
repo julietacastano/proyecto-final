@@ -1,0 +1,33 @@
+<header class="bg-indigo-800 p-4">
+    <div class="mx-auto flex justify-between items-center flex-wrap ">
+        <a href="/api/products"><img src="/static/logo/logo2.png" alt="Logo del comercio"  class="h-20"></a>
+        <nav>
+            <a class= "py-3 px-3 text-red-100" href="/api/admin">Administrador</a>
+            <a href="/api/users/logout" class= "py-3 pl-3 pr-10 text-red-100">Cerrar sesion</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h3 class="text-2xl text-center my-5">{{nombrePagina}}</h3>
+    {{#if usuarios}}
+        <div class="bg-white shadow rounded-lg mx-5 panel-admin gap-y-5">
+            <div class="divide-y divide-gray-200">
+            {{#each usuarios}}
+                <div class="p-6 w-full flex flex-col mb-5 sm:flex-row sm:items-center sm:justify-between space-y-8 md:space-y-0 gap-4">
+                    <div class="sm:w-2/4 md:w-3/6 lg:w-4/6 space-y-3">
+                        <p class="text-sm font-semibold">Nombre: {{this.name}}</p>
+                        <p class="text-sm">Email: {{this.email}}</p>
+                        <p class="text-sm">Rol: {{this.rol}}</p>
+                        <p class="text-sm">edad: {{this.edad}}</p>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    {{else}}
+        <h3 class="text-xl text-center">No hay usuarios para mostrar</h3>
+    {{/if}}
+    </div>
+
+</main>

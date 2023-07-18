@@ -1,0 +1,21 @@
+paths:
+  /api/users/register:
+    post:
+      summary: Crea un nuevo usuario
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/RegisterUser"
+      responses:
+        "201":
+          description: Se registro el usuario correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Users"
+        "404":
+          description: Ocurrio un problema.

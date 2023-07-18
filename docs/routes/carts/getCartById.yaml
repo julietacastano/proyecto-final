@@ -1,0 +1,23 @@
+paths:
+  /api/carts/{id}:
+    get:
+      summary: Trae el carrito con el id pedido
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: El id del carrito es el parametro necesario
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Trae el carrito pedido.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Cart"
+        "404":
+          description: Carrito no encontrado.

@@ -1,0 +1,47 @@
+# NewProduct
+components:
+  requestBodies:
+    NewProduct:
+      type: object
+      required:
+        - titulo
+        - descripcion
+        - precio
+        - codigo
+        - stock
+        - categoria
+        - owner
+      properties:
+        titulo:
+          type: string
+          description: Titulo del producto.
+        descripcion:
+          type: string
+          description: Descripcion del producto.
+        precio:
+          type: number
+          description: El precio del producto.
+        codigo:
+          type: string
+          description: El codigo del producto.
+        stock:
+          type: number
+          description: La cantidad de stock del producto.
+        categoria:
+          type: string
+          description: La categoria a la que pertenece el producto.
+        img:
+          type: string
+          description: La imagen del producto.
+        owner:
+          type: string
+          description: El email del usuario registrando el producto.
+      example:
+        titulo: La ladrona de libros
+        descripcion: La muerte contaba su propia historia...
+        precio: 6.600
+        codigo: LLDL
+        stock: 8
+        categoria: Ficcion
+        img: 2BG3Yib7HqxLu2P5r30Vy.jpg
+        owner: mail@mail.com.ar

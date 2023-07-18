@@ -1,0 +1,17 @@
+paths:
+  /api/users/login:
+    post:
+      summary: Autentica a un usuario existente
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/LoginUser"
+      responses:
+        "201":
+          description: Se autentico al usuario correctamente.
+        "404":
+          description: Ocurrio un problema.
